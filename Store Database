@@ -1,0 +1,28 @@
+Create a store data base
+
+CREATE TABLE STORE (ID integer primary key, Name TEXT, SIZE INTEGER, COLOR TEXT, AISLE INTEGER);
+
+INSERT INTO STORE VALUES (1, 'bike', 2, 'red', 2);
+INSERT INTO STORE VALUES (2, 'short', 3,'green',1);
+INSERT INTO STORE VALUES (3, 'pants',4, 'white',3);
+INSERT INTO STORE VALUES (4,'skirt', 6,'black',6);
+INSERT INTO STORE VALUES (5, 'jumpsuit',5,'pink',7);
+INSERT INTO STORE VALUES (6, 'shirt', 7, 'yellow',9);
+INSERT INTO STORE VALUES (7, 'sweater', 5,'bleu',10);
+INSERT INTO STORE VALUES (8,'mug',2,'red',11);
+INSERT INTO STORE VALUES (9, 'hat',3, 'red',12);
+INSERT INTO STORE VALUES (10,'bracelet',5,'tan', 13);
+INSERT INTO STORE VALUES (11, 'battery',6,'bronze',8);
+INSERT INTO STORE VALUES (12,'water',5,'red',11);
+INSERT INTO STORE VALUES (13,'tie',6, 'brown',15);
+INSERT INTO STORE VALUES (14, 'watch',5,'tan',16);
+INSERT INTO STORE VALUES (15, 'car',5, 'red',20);
+
+--Display the database order by Aisle
+SELECT * from store order by aisle
+
+--What is the max size by displaying the ID and Name
+SELECT id, name, max(size) from store
+
+ 
+
