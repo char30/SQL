@@ -1,0 +1,36 @@
+/**In this project, you’re going to make your own table with some small 
+set of “famous people”, then make more tables about things they do and join 
+those to create nice human readable lists. Contains at least two tables with at 
+least 10 rows total. One of the tables contains a column that relates to the primary key of another table.
+Has at least one query that does a JOIN.*/
+
+
+Create Table singers(ID INTEGER PRIMARY , Fullname TEXT, Age INTEGER, Nationality TEXT);
+
+INSERT INTO Singers Values(1,"Toni Braxton",55, "American");
+INSERT INTO Singers Values(2,"Celine Dion",54,"Canadian");
+INSERT INTO Singers Values(3, "Sean Paul",50,"Jamaican");
+INSERT INTO Singers Values(4, "Justin Timberlake",42,"American");
+INSERT INTO Singers Values(5,"Mary J Blige",52,"American");
+
+Create table Wealth( 
+                    
+    Singer_id INTEGER,
+    net_worth TEXT,
+    source_wealth TEXT);
+    
+INSERT INTO Wealth Values (1,"2billion","Hippop");
+INSERT INTO Wealth Values(2,"12billion","Hippop");
+INSERT INTO Wealth Values(3,"6million","Raggaeton");
+INSERT INTO Wealth Values(4,"7 billion", "RnB");
+INSERT INTO Wealth Values(5,"1billion","Rap");
+
+
+/*Return total net worth for each billionare*/
+
+SELECT singers.fullname, Wealth.net_worth
+FROM   singers
+JOIN   Wealth
+ON     Singers.id=Wealth.Singer_id;
+
+
