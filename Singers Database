@@ -4,33 +4,60 @@ those to create nice human readable lists. Contains at least two tables with at
 least 10 rows total. One of the tables contains a column that relates to the primary key of another table.
 Has at least one query that does a JOIN.*/
 
+Create Table Singers(Id Integer Primary Key ,
+        Name TEXT, 
+        Age INTEGER,
+        Nationality TEXT);
+        
+INSERT INTO Singers Values(1,"Toni B",55, "American");
+INSERT INTO Singers Values(2,"Celine D",54,"Canadian");
+INSERT INTO Singers Values(3, "Sean P",50,"Jamaican");
+INSERT INTO Singers Values(4, "Justin T",42,"American");
+INSERT INTO Singers Values(5,"Mary B",52,"American");
+INSERT INTO Singers Values(6,"Eminem",50,"American");
+INSERT INTO Singers Values(7,"Ariana G",29,"American");
+INSERT INTO Singers Values(8,"Drake C", 36, "Canadian");
+INSERT INTO Singers Values(9,"Justin Bieber",28,"Canadian");
+INSERT INTO Singers Values(10,"Adele B",30,"British");
+INSERT INTO Singers Values(11,"Big Fizzo",50,"Burundian");
+INSERT INTO Singers Values(12,"Vega C",35,"Ugandan");
+INSERT INTO Singers Values(13,"Bruce M",29,"Rwandese");
+INSERT INTO Singers Values(14,"Sunny G",30,"Rwandese");
+INSERT INTO Singers Values(15,"Shadia B",22,"Mexican");
 
-Create Table singers(ID INTEGER PRIMARY , Fullname TEXT, Age INTEGER, Nationality TEXT);
 
-INSERT INTO Singers Values(1,"Toni Braxton",55, "American");
-INSERT INTO Singers Values(2,"Celine Dion",54,"Canadian");
-INSERT INTO Singers Values(3, "Sean Paul",50,"Jamaican");
-INSERT INTO Singers Values(4, "Justin Timberlake",42,"American");
-INSERT INTO Singers Values(5,"Mary J Blige",52,"American");
 
-Create table Wealth( 
+
+Create Table Wealth( 
                     
-    Singer_id INTEGER,
+    Singer_id Integer,
     net_worth TEXT,
-    source_wealth TEXT);
+    Popularity Integer);
     
-INSERT INTO Wealth Values (1,"2billion","Hippop");
-INSERT INTO Wealth Values(2,"12billion","Hippop");
-INSERT INTO Wealth Values(3,"6million","Raggaeton");
-INSERT INTO Wealth Values(4,"7 billion", "RnB");
-INSERT INTO Wealth Values(5,"1billion","Rap");
+
+INSERT INTO Wealth Values (1,"2billion",100);
+INSERT INTO Wealth Values(2, "3billion",95);
+INSERT INTO Wealth Values(3,"12million",85);
+INSERT INTO Wealth Values(4,"6million",65);
+INSERT INTO Wealth Values(5,"8million",70);
+INSERT INTO Wealth Values(6,"4billion",60);
+INSERT INTO Wealth Values(7,"1billion",75);
+INSERT INTO Wealth Values(8,"9million",80);
+INSERT INTO Wealth Values(9,"10million",70);
+INSERT INTO Wealth Values(10,"1billion",85);
+INSERT INTO Wealth Values(11,"3billion",95);
+INSERT INTO Wealth Values(12,"4billion",92);
+INSERT INTO Wealth Values(13,"50million",90);
+INSERT INTO Wealth Values(14,"2.5billion",80);
+INSERT INTO Wealth Values(15,"4billion",98);
 
 
-/*Return total net worth for each billionare*/
+/*Return  popularity for each singer Limit 5*/
 
-SELECT singers.fullname, Wealth.net_worth
-FROM   singers
+
+SELECT Singers.Name,Wealth.Popularity
+FROM   Singers
 JOIN   Wealth
-ON     Singers.id=Wealth.Singer_id;
+ON     Singers.Id=Wealth.Singer_id Limit 5;
 
 
