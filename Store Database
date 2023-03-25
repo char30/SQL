@@ -2,24 +2,54 @@
 You should have a table for all the items in your store, and at least 5 columns for the kind of data you think you'd need to store. 
 You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items*/
 
+CREATE TABLE Store (Id integer primary key Autoincrement, Item TEXT, Size INTEGER, Price Integer, Aisle INTEGER);
 
-CREATE TABLE Store (Id integer primary key, Item TEXT, Size INTEGER, Price Integer, Aisle INTEGER);
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Earring', 4, 20, 2);
 
-INSERT INTO STORE VALUES (1, 'Earring', 4, 20, 2);
-INSERT INTO STORE VALUES (2, 'short', 6,30,8);
-INSERT INTO STORE VALUES (3, 'Pants',4, 50,20);
-INSERT INTO STORE VALUES (4,'Skirt', 6,15,6);
-INSERT INTO STORE VALUES (5, 'jumpsuit',12,25,7);
-INSERT INTO STORE VALUES (6, 'shirt', 7, 10,9);
-INSERT INTO STORE VALUES (7, 'sweater', 5,'50',10);
-INSERT INTO STORE VALUES (8,'Mug',2,5,11);
-INSERT INTO STORE VALUES (9, 'Hat',3, 6,12);
-INSERT INTO STORE VALUES (10,'Bracelet',5,15, 13);
-INSERT INTO STORE VALUES (11, 'Battery',6,10,8);
-INSERT INTO STORE VALUES (12,'Water',5,7,11);
-INSERT INTO STORE VALUES (13,'Tie',6, 12,15);
-INSERT INTO STORE VALUES (14, 'Watch',5,20,16);
-INSERT INTO STORE VALUES (15, 'Ring',6,89,20);
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('short', 6,30,8);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Pants',4, 50,20);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Skirt', 6,15,6);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('jumpsuit',12,25,7);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('shirt', 7, 10,9);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('sweater', 5,'50',10);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Mug',2,5,11);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Hat',3, 6,12);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Bracelet',5,15, 13);
+ 
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Battery',6,10,8);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Water',5,7,11);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Tie',6, 12,15);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Watch',5,20,16);
+
+INSERT INTO Store(Item,Size,Price,Aisle)
+VALUES ('Ring',6,89,20);
+
+
 
 
 
@@ -27,6 +57,8 @@ SELECT * from Store Order by price asc;
 
 
 /*--What is the Max size as Max_Size by displaying the ID and Item*/
+
+
 SELECT Id, Item, Max(Size) as Max_Size
 FROM Store 
 
