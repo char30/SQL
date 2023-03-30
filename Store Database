@@ -50,10 +50,11 @@ INSERT INTO Store(Item,Size,Price,Aisle)
 VALUES ('Ring',6,89,20);
 
 
+SELECT Id, Item,price
+FROM    Store
+Group by 1,2
+Order by price desc Limit 6
 
-
-
-SELECT * from Store Order by price asc;
 
 
 /*--What is the Max size as Max_Size by displaying the ID and Item*/
@@ -61,7 +62,9 @@ SELECT * from Store Order by price asc;
 
 SELECT Id, Item, Max(Size) as Max_Size
 FROM Store 
-
+GROUP BY 1,2
+Having Max(Size)>=5
+Order By Max(Size) Asc Limit 8
 
  
 
