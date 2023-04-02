@@ -52,12 +52,16 @@ INSERT INTO Wealth Values(14,"2.5billion",80);
 INSERT INTO Wealth Values(15,"4billion",98);
 
 
-/*Return  popularity for each singer Limit 5*/
+/*Display Name, age and their average net_worth Limit to 6*/
 
 
-SELECT Singers.Name,Wealth.Popularity
-FROM   Singers
-JOIN   Wealth
-ON     Singers.Id=Wealth.Singer_id Limit 5;
+SELECT s.Name,
+       s.Age,CAST(AVG(w.net_worth )AS INTEGER)
+
+FROM Singers s
+LEFT OUTER JOIN Wealth w
+ON s.Id= w.Singer_id
+GROUP BY s.Name
+Order By CAST(AVG(w.net_worth )AS INTEGER) desc LIMIT 6 
 
 
