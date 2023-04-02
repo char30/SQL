@@ -113,22 +113,41 @@ INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (97,'Life of Pi','Fox',609.00,125.00,0.21,484.00,0.80,2012);
 INSERT INTO topmovies(Rank,Title,Studio,Worldwide,Domestic,DomesticPct,Overseas,OverseasPct,Year) VALUES (98,'Madagascar: Escape 2 Africa','P/DW',603.90,180.00,0.30,423.90,0.70,2008);
 
-/*Display title,Year group by title and Year is greater that 2004*/
+/* Return Rank, Year and when title has letter 'W' it is an action_movies, when title has letter 'N' it is a comedy_movies 
+and when title has letter 'S' it is a 'lifetime_movies' As Topten_Movies and Else it is 'Boring_Movies'*/
 
-SELECT title, Year from topmovies
-GROUP BY title
-HAVING "Year">2004;
+SELECT Rank,Year,
+    CASE
+    WHEN Title like '%W%' THEN 'Action_Movies'
+    WHEN Title like '%N%' THEN 'Comedy_Movies'
+    WHEN Title like '%S%' THEN 'Lifetime_Movies'
+    ELSE 'Boring_Movies'
+    END AS 'topten_Movies'
+FROM topmovies
+Order by Year asc Limit 10;
 
-/*Select all data where DomesticPct is greater than 200 and Overswas is below 800*/
+/*Select all data where DomesticPct is greater than 200 OR Overswas is below 800*/
 
 
 SELECT * from topmovies
 WHERE CAST(DomesticPct AS INTEGER)>200
 OR  CAST(Overseas AS INTEGER)<800;
 
-/*Display Sum Rank as Total_Rank, Group by Title, Year and Having Rank greater than 50*/
 
-SELECT  SUM(Rank) as Total_Rank, title,Year from topmovies
+
+/*Return Rank, title with the letter "W" group by title, Average Domestic, Average Overseas and Min Year order by the earliest to the oldest*/
+
+SELECT Rank, 
+       Title,
+      CAST(MAX(Domestic) As integer),
+       CAST(AVG(Overseas) As Integer),
+       MIN(Year) 
+     FROM   topmovies
+WHERE title like '%W%'
 GROUP BY title
-HAVING "RANK" >50;
+Order by MIN(Year) desc Limit 5;
+
+
+
+
 
