@@ -73,14 +73,14 @@ GROUP BY location
 HAVING count(orderID)>2
 
 
---#10ow many of each type of headphone were sold in February?
+--#10 How many of each type of headphone were sold in February?
 SELECT sum(Quantity) as quantity,
 Product
 FROM BIT_DB.FebSales 
 WHERE Product like '%Headphones%'
 GROUP BY Product
 
---#11at was the average amount spent per account in February? 
+--#11What was the average amount spent per account in February? 
 SELECT avg(quantity*price)
 FROM BIT_DB.FebSales Feb
 
@@ -90,7 +90,7 @@ ON FEB.orderid=cust.order_id
 WHERE length(orderid) = 6 
 AND orderid <> 'Order ID'
 
---#13 hat was the average quantity of products purchased per account in February? 
+--#13 What was the average quantity of products purchased per account in February? 
 SELECT sum(quantity)/count(cust.acctnum)
 FROM BIT_DB.FebSales Feb
 
