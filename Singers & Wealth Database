@@ -1,0 +1,117 @@
+/**In this project, you’re going to make your own table with some small 
+set of “famous people”, then make more tables about things they do and join 
+those to create nice human readable lists. Contains at least two tables with at 
+least 10 rows total. One of the tables contains a column that relates to the primary key of another table.
+Has at least one query that does a JOIN.*/
+
+CREATE TABLE singers 
+            (Id Integer Primary Key Autoincrement,
+             Name Text,
+             Age Integer,
+             Nationality Text);
+
+               INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Toni B",55, "American");
+INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Celine D",54,"Canadian");
+INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Sean P",50,"Jamaican");
+INSERT INTO singers (Name, Age,Nationality)
+VALUES ("Justin T",42,"American");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Justin T",42,"American");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Eminem",50,"American");
+INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Ariana G",29,"American");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Drake C", 36, "Canadian");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Justin Bieber",28,"Canadian");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Adele B",30,"British");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Big Fizzo",50,"Burundian");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Vega C",35,"Ugandan");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Bruce M",29,"Rwandese");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Sunny G",30,"Rwandese");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Shadia B",22,"Mexican");
+
+CREATE TABLE wealth 
+    (Singer_id Integer Primary Key Autoincrement,
+    Net_worth TEXT,
+    Popularity TEXT);
+
+    INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Toni B",55, "American");
+INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Celine D",54,"Canadian");
+INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Sean P",50,"Jamaican");
+INSERT INTO singers (Name, Age,Nationality)
+VALUES ("Justin T",42,"American");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Justin T",42,"American");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Eminem",50,"American");
+INSERT INTO singers (Name, Age, Nationality)
+VALUES ("Ariana G",29,"American");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Drake C", 36, "Canadian");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Justin Bieber",28,"Canadian");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Adele B",30,"British");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Big Fizzo",50,"Burundian");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Vega C",35,"Ugandan");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Bruce M",29,"Rwandese");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Sunny G",30,"Rwandese");
+INSERT INTO singers (Name,Age,Nationality)
+VALUES ("Shadia B",22,"Mexican");
+
+CREATE TABLE wealth 
+    (Singer_id Integer Primary Key Autoincrement,
+    Net_worth TEXT,
+    Popularity TEXT);
+    
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("2million", "Fair");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES( "5million","Good");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("8million", "Good");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("10million", "Excellent");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("6million", "Good");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("11million", "Excellent");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("3million", "Fair");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("4million", "Fair");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES("9million", "Good");
+INSERT INTO wealth (Net_worth, Popularity)
+VALUES ("12million","Excellent");
+
+
+
+/*Display Name, age from the oldest to the youngest , excellent popularity and group by name   */
+SELECT s.Name,s.age, w.popularity
+FROM   singers s
+JOIN   wealth w
+ON    s.id= w.Singer_id
+WHERE Popularity = "Excellent"
+GROUP BY Name
+Order by Age desc;
+
+
